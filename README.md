@@ -7,4 +7,4 @@ Statická stránka pre GitHub Pages (repo `dzanino/Congressa`): `index.html` (SK
 Obrázky v `assets/` sa generujú z ikon aplikácie:
 `cp Congressa/Resources/Assets.xcassets/AppIcon.appiconset/mac-256@1x.png web/assets/icon-256.png`
 (a `mac-512@1x.png` → `icon-512.png`), prehľad ikon `docs/icons_preview.png` → `assets/icons.png`.
-Stav k 7. 9. 2026: appka je zadarmo s nepovinnými príspevkami, kontakt `jansikuta@me.com`.
+Stav k 7. 9. 2026: appka je zadarmo s nepovinnými príspevkami, kontakt `congressa_main@icloud.com`.
