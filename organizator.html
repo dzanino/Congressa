@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Congressa pre organizátora — návod krok za krokom</title>
+<meta name="description" content="Ako dať účastníkom konferencie program do telefónu s Congressou: bez servera za 10 minút (QR kód), alebo so serverom — push oznamy, prihlášky, kapacita. Návod pre organizátora, zadarmo.">
+<meta property="og:title" content="Congressa pre organizátora — návod">
+<meta property="og:description" content="Program konferencie do telefónov účastníkov: QR kód za 10 minút, alebo vlastný server s push oznamami a prihláškami.">
+<meta property="og:image" content="assets/icon-512.png">
+<link rel="icon" href="assets/icon-256.png">
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--brand:#0B0E9D;--brand2:#3f5ea7;--bg:#f6f7fb;--card:#fff;--line:#e5e7ef;--accent:#e0801f}
+  *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:var(--brand)}
+  header{position:sticky;top:0;background:rgba(246,247,251,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);z-index:9}
+  .nav{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px}
+  .nav img{width:36px;height:36px;border-radius:9px}.nav b{font-size:18px}.nav .sp{flex:1}
+  .nav a{text-decoration:none;color:var(--ink);font-weight:500;margin-left:16px;font-size:15px}
+  .lang{border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:#fff;cursor:pointer;font-size:13px}
+  .hero{max-width:1080px;margin:0 auto;padding:64px 20px 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  h1{font-size:44px;line-height:1.1;margin:0 0 16px;letter-spacing:-.5px}
+  .lead{font-size:19px;color:var(--muted);max-width:560px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-block;padding:12px 20px;border-radius:12px;background:var(--brand);color:#fff;text-decoration:none;font-weight:600}
+  .btn.sec{background:#fff;color:var(--brand);border:1px solid var(--line)}
+  .phone{background:linear-gradient(160deg,var(--brand2),var(--brand));border-radius:28px;padding:22px;color:#fff;box-shadow:0 20px 60px rgba(11,14,157,.25)}
+  .phone .t{font-size:13px;opacity:.8}.phone h3{margin:6px 0 14px;font-size:22px}
+  .row{background:rgba(255,255,255,.12);border-radius:12px;padding:10px 12px;margin:8px 0;display:flex;gap:10px;align-items:center}
+  .row .time{font-variant-numeric:tabular-nums;font-weight:700;min-width:44px}.row .k{font-size:11px;opacity:.85;background:rgba(255,255,255,.18);padding:2px 8px;border-radius:999px}
+  .live{background:#fff;color:var(--brand)}
+  section{max-width:1080px;margin:0 auto;padding:36px 20px}
+  h2{font-size:30px;margin:0 0 8px;letter-spacing:-.3px}.sub{color:var(--muted);margin:0 0 24px;font-size:17px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .card .ic{width:40px;height:40px;border-radius:10px;background:#eef0fb;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+  .card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:15px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
+  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;position:relative}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:18px;background:var(--accent);color:#fff;font-weight:700;border-radius:999px;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+  .ai{background:linear-gradient(135deg,#0B0E9D,#1f3a93);color:#fff;border-radius:24px;padding:36px}
+  .ai h2{color:#fff}.ai p{color:#dfe3ff;max-width:720px}.ai .grid .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff}.ai .card p{color:#dfe3ff}.ai .card .ic{background:rgba(255,255,255,.14)}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}th{background:#f1f2f9}
+  .icons img{width:100%;max-width:820px;border-radius:12px}
+  footer{max-width:1080px;margin:0 auto;padding:30px 20px 50px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  .badge{display:inline-block;background:#eef0fb;color:var(--brand);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;margin-bottom:12px}
+  @media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:36px}h1{font-size:34px}.nav a.hide{display:none}}
+  [data-lang]{display:none}html[lang=sk] [data-lang=sk]{display:revert}html[lang=en] [data-lang=en]{display:revert}
+
+</head>
+<body>
+  .path{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;margin:18px 0}
+  .path h3{margin:0 0 4px;font-size:22px}.path .tag{display:inline-block;background:#eef0fb;color:var(--brand);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;margin-bottom:10px}
+  .path.b .tag{background:#fdf0e3;color:#b35a00}
+  ol.big{padding-left:22px;margin:12px 0}ol.big li{margin:10px 0}ol.big b{color:var(--ink)}
+  .note{background:#fff8e8;border:1px solid #f3dfb0;border-radius:12px;padding:12px 14px;font-size:15px;margin:12px 0}
+  .dl{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+  .dl a{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;font-weight:600;color:var(--brand)}
+  code{background:#eef0fb;border-radius:6px;padding:1px 6px;font-size:14px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0}.faq summary{font-weight:600;cursor:pointer}
+  .check li{margin:6px 0}
+  @media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:36px}h1{font-size:34px}.nav a.hide{display:none}}
+</style>
+</head>
+<body>
+
+<header><div class="nav">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;margin:0"><img src="assets/icon-256.png" alt="Congressa"><b>Congressa</b></a><span class="sp"></span>
+  <a class="hide" href="#bez"><span data-lang="sk">Bez servera</span><span data-lang="en">Without a server</span></a>
+  <a class="hide" href="#so"><span data-lang="sk">So serverom</span><span data-lang="en">With a server</span></a>
+  <a class="hide" href="#pocas"><span data-lang="sk">Počas konferencie</span><span data-lang="en">During the event</span></a>
+  <a class="hide" href="#faq">FAQ</a>
+  <a class="hide" href="index.html"><span data-lang="sk">Pre účastníkov</span><span data-lang="en">For attendees</span></a>
+  <button class="lang" onclick="toggleLang()"><span data-lang="sk">EN</span><span data-lang="en">SK</span></button>
+</div></header>
+
+<div class="hero">
+  <div>
+    <span class="badge"><span data-lang="sk">Návod pre organizátora</span><span data-lang="en">Organiser guide</span></span>
+    <h1 data-lang="sk">Program konferencie do telefónov účastníkov. Za jedno popoludnie.</h1>
+    <h1 data-lang="en">The conference programme in your attendees' phones. In one afternoon.</h1>
+    <p class="lead" data-lang="sk">Dve cesty. <b>Bez servera</b>: účastníci si program načítajú sami z vášho webu alebo PDF — vy len rozdáte QR kód. <b>So serverom</b>: navyše push oznamy, zmeny programu naživo, prihlášky na večeru či výlet s kapacitou. Obe zadarmo, obe pre iPhone aj Android.</p>
+    <p class="lead" data-lang="en">Two paths. <b>Without a server</b>: attendees load the programme themselves from your website or PDF — you just hand out a QR code. <b>With a server</b>: plus push announcements, live programme changes, sign-up for dinners or trips with capacity. Both free, both for iPhone and Android.</p>
+    <div class="cta">
+      <a class="btn" href="#bez"><span data-lang="sk">Cesta A — bez servera (10 min)</span><span data-lang="en">Path A — no server (10 min)</span></a>
+      <a class="btn sec" href="#so"><span data-lang="sk">Cesta B — so serverom (1 hod.)</span><span data-lang="en">Path B — with a server (1 h)</span></a>
+    </div>
+  </div>
+  <div class="phone">
+    <div class="t" data-lang="sk">Čo účastník uvidí</div><div class="t" data-lang="en">What the attendee sees</div>
+    <h3 data-lang="sk">Teraz · štvrtok 9:00</h3><h3 data-lang="en">Now · Thursday 9:00</h3>
+    <div class="row live"><span class="time">09:00</span><span data-lang="sk">Sekcia A — súdne lekárstvo</span><span data-lang="en">Session A — forensic medicine</span><span class="k" style="background:var(--brand);color:#fff" data-lang="sk">prebieha</span><span class="k" style="background:var(--brand);color:#fff" data-lang="en">live</span></div>
+    <div class="row"><span class="time">10:30</span><span data-lang="sk">Prestávka na kávu · foyer</span><span data-lang="en">Coffee break · foyer</span></div>
+    <div class="row"><span class="time">11:00</span><span data-lang="sk">Sekcia B · sála 2</span><span data-lang="en">Session B · hall 2</span><span class="k">★</span></div>
+    <div class="row"><span class="time">19:00</span><span data-lang="sk">Gala večera · prihlásených 84/120</span><span data-lang="en">Gala dinner · 84/120 signed up</span></div>
+  </div>
+</div>
+
+<section id="bez">
+  <div class="path">
+    <span class="tag"><span data-lang="sk">CESTA A · bez servera · 10 minút</span><span data-lang="en">PATH A · no server · 10 minutes</span></span>
+    <h3 data-lang="sk">Účastníci si program načítajú sami — vy rozdáte QR kód</h3><h3 data-lang="en">Attendees load the programme themselves — you hand out a QR code</h3>
+    <p class="sub" data-lang="sk">Vhodné pre každú konferenciu, ktorá má program na webe alebo v PDF. Nič neinštalujete, nič nespravujete.</p>
+    <p class="sub" data-lang="en">Right for any conference with a programme on a website or in a PDF. Nothing to install, nothing to run.</p>
+    <ol class="big">
+      <li data-lang="sk"><b>Nainštalujte si Congressu</b> (iPhone alebo Android) a v nej <b>Načítať program → Prečítať web alebo PDF</b>: zadajte adresu webu konferencie (alebo otvorte PDF programu). Skontrolujte rozpoznané body — typ, časy, sály — a schváľte. Trvá 2–5 minút.</li>
+      <li data-lang="en"><b>Install Congressa</b> (iPhone or Android) and use <b>Load programme → Read website or PDF</b>: enter the conference website (or open the programme PDF). Check the recognised items — type, times, rooms — and approve. Takes 2–5 minutes.</li>
+      <li data-lang="sk"><b>Vyrobte QR kód</b>: obrazovka <i>Teraz</i> → <b>Zdieľať program kolegom (QR kód)</b> → <i>Uložiť kód ako obrázok</i>. Kód nesie adresu vášho webu; kto ho naskenuje, dostane rovnaký sprievodca importu. Pod kódom je aj veta pre tých, čo appku ešte nemajú (App Store / Google Play).</li>
+      <li data-lang="en"><b>Make the QR code</b>: <i>Now</i> screen → <b>Share the programme (QR code)</b> → <i>Save the code as an image</i>. The code carries your website address; whoever scans it gets the same import assistant. Below the code there is a line for those without the app yet (App Store / Google Play).</li>
+      <li data-lang="sk"><b>Rozdajte ho</b>: na registračný pult, na prvý slide, do e-mailu účastníkom, na web konferencie. Účastník naskenuje Fotoaparátom — Congressa sa otvorí sama (alebo v appke <i>Naskenovať QR kód</i>).</li>
+      <li data-lang="en"><b>Hand it out</b>: registration desk, first slide, attendee e-mail, conference website. The attendee scans it with the Camera — Congressa opens by itself (or <i>Scan QR code</i> inside the app).</li>
+    </ol>
+    <div class="note" data-lang="sk">Čo účastník dostane: program po dňoch offline, <i>Teraz</i> (čo prebieha, čo nasleduje, kam ísť), <i>Môj plán</i> s pripomienkami pred označenými bodmi aj jednotlivými prednáškami, hľadanie podľa priezviska, potvrdenie o účasti v PDF. Čo nedostane: vaše oznamy naživo a prihlasovanie — na to je cesta B.</div>
+    <div class="note" data-lang="en">What the attendee gets: the programme by day offline, <i>Now</i> (what's on, what's next, where to go), <i>My plan</i> with reminders before starred items and individual talks, search by surname, a PDF certificate of attendance. What they don't get: your live announcements and sign-ups — that's path B.</div>
+    <p data-lang="sk"><b>Tip:</b> ak je program na webe len ako obrázok alebo je web zložitý, pošlite účastníkom PDF programu — Congressa číta textové PDF spoľahlivo (nie skeny).</p>
+    <p data-lang="en"><b>Tip:</b> if the programme is only an image on the website or the site is complex, send attendees the programme PDF — Congressa reads text PDFs reliably (not scans).</p>
+  </div>
+</section>
+
+<section id="so">
+  <div class="path b">
+    <span class="tag"><span data-lang="sk">CESTA B · so serverom · asi 1 hodina, raz</span><span data-lang="en">PATH B · with a server · about 1 hour, once</span></span>
+    <h3 data-lang="sk">Push oznamy, zmeny naživo, prihlášky s kapacitou</h3><h3 data-lang="en">Push announcements, live changes, sign-ups with capacity</h3>
+    <p class="sub" data-lang="sk">Potrebujete jeden Mac (spravuje program) a jeden počítač, ktorý beží počas konferencie (server — môže to byť ten istý Mac). Server je jeden súbor v Pythone, bez inštalácie čohokoľvek ďalšieho.</p>
+    <p class="sub" data-lang="en">You need one Mac (to manage the programme) and one computer running during the conference (the server — it can be the same Mac). The server is a single Python file, nothing else to install.</p>
+
+    <h3 style="font-size:18px;margin-top:22px" data-lang="sk">1 · Program v Mac aplikácii (20 min)</h3><h3 style="font-size:18px;margin-top:22px" data-lang="en">1 · The programme in the Mac app (20 min)</h3>
+    <ol class="big">
+      <li data-lang="sk"><b>Mac aplikácia Congressa</b> (App Store — Mac verzia je v tej istej appke; alebo napíšte, pošlem build). Mac je vždy v režime organizátora.</li>
+      <li data-lang="en"><b>Congressa for Mac</b> (App Store — the Mac version is the same app; or write to me and I'll send a build). The Mac is always in organiser mode.</li>
+      <li data-lang="sk"><b>Import programu</b> → <i>Načítať z webu</i> alebo <i>Otvoriť PDF</i>. Skontrolujte typy a časy, <i>Nahradiť program</i>. Pri neznámych weboch pomôže <i>Rozpoznať pomocou AI</i> (server s kľúčom Claude, cent za program).</li>
+      <li data-lang="en"><b>Import programme</b> → <i>Load from website</i> or <i>Open PDF</i>. Check types and times, <i>Replace programme</i>. For unusual websites use <i>Recognise with AI</i> (server with a Claude key, cents per programme).</li>
+      <li data-lang="sk"><b>Doplňte, čo účastníkom pomôže</b>: sály s navigáciou, kontaktné osoby s telefónom (výlet, večera), pri večeri/výlete <i>Vyžaduje prihlásenie</i> + kapacita, <i>Upozorniť všetkých</i> pri bodoch, ktoré nemá nikto zmeškať.</li>
+      <li data-lang="en"><b>Add what helps attendees</b>: rooms with navigation, contact persons with phone (trip, dinner), <i>Requires sign-up</i> + capacity on dinners/trips, <i>Notify everyone</i> on items nobody should miss.</li>
+      <li data-lang="sk"><b>Účastníci a kódy</b> (voliteľné): CSV so zoznamom → vygenerované kódy → skupiny (výbor, prednášajúci). Kód odomkne vyhradené body a cielené oznamy.</li>
+      <li data-lang="en"><b>Attendees and codes</b> (optional): CSV list → generated codes → groups (board, speakers). A code unlocks reserved items and targeted announcements.</li>
+    </ol>
+
+    <h3 style="font-size:18px;margin-top:22px" data-lang="sk">2 · Server (15 min, jedno rozkliknutie)</h3><h3 style="font-size:18px;margin-top:22px" data-lang="en">2 · The server (15 min, one double-click)</h3>
+    <div class="dl">
+      <a href="assets/Congressa_server_pre_druhy_Mac.zip" download>⬇︎ <span data-lang="sk">Balík servera pre Mac (zip, 45 kB)</span><span data-lang="en">Server package for Mac (zip, 45 kB)</span></a>
+      <a href="assets/Congressa-ako-pripravit-konferenciu.pdf">📄 <span data-lang="sk">PDF: Ako pripraviť konferenciu</span><span data-lang="en">PDF: How to prepare a conference (SK)</span></a>
+      <a href="assets/Congressa-sprava-na-dialku.pdf">📄 <span data-lang="sk">PDF: Správa servera na diaľku</span><span data-lang="en">PDF: Managing the server remotely (SK)</span></a>
+    </div>
+    <ol class="big">
+      <li data-lang="sk"><b>Rozbaľte zip a dvojklikom spustite <code>START_CONGRESSA.command</code></b> (prvýkrát pravý klik → Otvoriť). Skript server nainštaluje do <code>~/Congressa_server</code>, nastaví automatický štart po zapnutí Macu a nezaspávanie, spustí ho a vypíše <b>adresu servera</b> a <b>admin heslo</b>. Ak Mac vypýta „command line developer tools“ → Inštalovať a spustiť znova.</li>
+      <li data-lang="en"><b>Unzip and double-click <code>START_CONGRESSA.command</code></b> (first time: right-click → Open). The script installs the server into <code>~/Congressa_server</code>, sets it to start automatically and keep the Mac awake, starts it and prints the <b>server address</b> and <b>admin password</b>. If the Mac asks for "command line developer tools" → Install and run again.</li>
+      <li data-lang="sk"><b>Verejná adresa</b> (účastníci nie sú vo vašej Wi-Fi): nainštalujte <a href="https://tailscale.com/download">Tailscale</a>, prihláste sa, na login.tailscale.com → DNS zapnite <i>MagicDNS</i> a <i>HTTPS Certificates</i>, a spustite START znova — vypíše stabilnú https adresu. Zadarmo, dáta ostávajú na vašom Macu.</li>
+      <li data-lang="en"><b>Public address</b> (attendees are not on your Wi-Fi): install <a href="https://tailscale.com/download">Tailscale</a>, sign in, enable <i>MagicDNS</i> and <i>HTTPS Certificates</i> under DNS on login.tailscale.com, and run START again — it prints a stable https address. Free, data stays on your Mac.</li>
+      <li data-lang="sk"><b>Push pre iPhone</b> (10 min, raz): v Apple Developer účte vytvorte APNs kľúč (.p8), uložte ho do <code>~/Congressa_server/apns/</code>, do <code>.env</code> doplňte Team ID a <code>CONGRESSA_APNS_ENV=production</code>, START znova. Postup krok za krokom je v PDF vyššie. Bez tohto kroku všetko funguje, len iPhony nedostanú push (Android ho nemá zatiaľ vôbec — oznamy si stiahne pri otvorení appky).</li>
+      <li data-lang="en"><b>Push for iPhone</b> (10 min, once): create an APNs key (.p8) in your Apple Developer account, put it into <code>~/Congressa_server/apns/</code>, add the Team ID and <code>CONGRESSA_APNS_ENV=production</code> to <code>.env</code>, run START again. Step by step in the PDF above. Without this step everything works, only iPhones get no push (Android has none yet — it fetches announcements when the app is opened).</li>
+    </ol>
+
+    <h3 style="font-size:18px;margin-top:22px" data-lang="sk">3 · Publikovať a rozdať QR kód (5 min)</h3><h3 style="font-size:18px;margin-top:22px" data-lang="en">3 · Publish and hand out the QR code (5 min)</h3>
+    <ol class="big">
+      <li data-lang="sk">Mac appka → <b>Server a push</b> → adresa servera + admin heslo → <i>Overiť pripojenie</i> → <b>Publikovať program na server</b> (a <i>Odoslať zoznam účastníkov</i>, ak ho máte).</li>
+      <li data-lang="en">Mac app → <b>Server and push</b> → server address + admin password → <i>Test connection</i> → <b>Publish programme to server</b> (and <i>Send attendee list</i>, if you have one).</li>
+      <li data-lang="sk">Tam istom mieste <b>QR kód pre účastníkov</b> → uložiť ako obrázok → plagát pri registrácii, úvodný slide, e-mail. Kód nesie adresu servera; účastník ho naskenuje raz a odvtedy dostáva program, oznamy aj prihlášky. Rovnaký kód pre iPhone aj Android.</li>
+      <li data-lang="en">Same place: <b>QR code for attendees</b> → save as image → poster at registration, opening slide, e-mail. The code carries the server address; the attendee scans it once and from then on receives the programme, announcements and sign-ups. The same code for iPhone and Android.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="pocas">
+  <h2 data-lang="sk">Počas konferencie</h2><h2 data-lang="en">During the conference</h2>
+  <div class="grid">
+    <div class="card"><div class="ic">📣</div><h3 data-lang="sk">Okamžitý oznam</h3><h3 data-lang="en">Instant announcement</h3><p data-lang="sk">Mac → Server a push → <i>Poslať oznam</i> („Obed je v átriu“). Uloží sa do programu a iPhony dostanú push. Dá sa aj z prehliadača: <code>adresa-servera/admin</code>.</p><p data-lang="en">Mac → Server and push → <i>Send announcement</i> ("Lunch is in the atrium"). Saved into the programme, iPhones get a push. Also from a browser: <code>server-address/admin</code>.</p></div>
+    <div class="card"><div class="ic">🔁</div><h3 data-lang="sk">Zmena programu</h3><h3 data-lang="en">Programme change</h3><p data-lang="sk">Upravte bod (čas, sála, zrušenie) → <i>Publikovať a upozorniť všetkých</i>. Appky si zmenu stiahnu a účastníkom, ktorých sa týka, ju ukážu v Oznamoch.</p><p data-lang="en">Edit the item (time, room, cancelled) → <i>Publish and notify everyone</i>. Apps fetch the change and show it in Notices to the attendees concerned.</p></div>
+    <div class="card"><div class="ic">📋</div><h3 data-lang="sk">Kto je prihlásený</h3><h3 data-lang="en">Who signed up</h3><p data-lang="sk">Server a push → <i>Prihlásení na body programu</i> — počty, čakacia listina, CSV prezenčná listina pre reštauráciu či autobus.</p><p data-lang="en">Server and push → <i>Registrations</i> — counts, waiting list, CSV attendance list for the restaurant or the bus.</p></div>
+    <div class="card"><div class="ic">⏰</div><h3 data-lang="sk">Pripomienky idú samy</h3><h3 data-lang="en">Reminders run by themselves</h3><p data-lang="sk">Server pošle push pred každým bodom podľa nastavenia účastníka (predvolene 15 min); Android si pripomienky plánuje v telefóne. Vy nerobíte nič.</p><p data-lang="en">The server sends a push before each item per the attendee's setting (15 min by default); Android schedules reminders on the phone. You do nothing.</p></div>
+  </div>
+
+  <h2 style="margin-top:34px" data-lang="sk">Kontrolný zoznam</h2><h2 style="margin-top:34px" data-lang="en">Checklist</h2>
+  <div class="grid">
+    <div class="card"><h3 data-lang="sk">Týždeň pred</h3><h3 data-lang="en">A week before</h3><ul class="check">
+      <li data-lang="sk">Program publikovaný, sály a kontakty doplnené</li><li data-lang="en">Programme published, rooms and contacts filled in</li>
+      <li data-lang="sk">Skúšobný účastník na iPhone <b>aj</b> Androide naskenoval QR a dostal push</li><li data-lang="en">A test attendee on iPhone <b>and</b> Android scanned the QR and received a push</li>
+      <li data-lang="sk">QR kód v e-maile účastníkom + veta o stiahnutí appky</li><li data-lang="en">QR code in the attendee e-mail + a line about downloading the app</li>
+    </ul></div>
+    <div class="card"><h3 data-lang="sk">Deň pred</h3><h3 data-lang="en">The day before</h3><ul class="check">
+      <li data-lang="sk">Server beží (otvorte <code>adresa/api/health</code> — má vrátiť <code>"status": "ok"</code>)</li><li data-lang="en">Server is running (open <code>address/api/health</code> — should return <code>"status": "ok"</code>)</li>
+      <li data-lang="sk">Mac servera: nikdy nespať, automatické prihlásenie (START to nastaví)</li><li data-lang="en">Server Mac: never sleep, auto-login (START sets it up)</li>
+      <li data-lang="sk">Plagát s QR pri registrácii, QR na úvodnom slide</li><li data-lang="en">QR poster at registration, QR on the opening slide</li>
+    </ul></div>
+    <div class="card"><h3 data-lang="sk">Ráno v deň D</h3><h3 data-lang="en">Morning of day one</h3><ul class="check">
+      <li data-lang="sk">Oznam „Vitajte“ — overí, že push chodí</li><li data-lang="en">A "Welcome" announcement — verifies push is flowing</li>
+      <li data-lang="sk"><code>/admin</code> → Zariadenia: koľko účastníkov je pripojených</li><li data-lang="en"><code>/admin</code> → Devices: how many attendees are connected</li>
+      <li data-lang="sk">Pri zmene programu vždy <i>Publikovať a upozorniť</i></li><li data-lang="en">On every programme change: <i>Publish and notify</i></li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <h2>FAQ</h2>
+  <details><summary data-lang="sk">Koľko to stojí?</summary><summary data-lang="en">What does it cost?</summary><p data-lang="sk">Nič. Aplikácia aj server sú zadarmo, bez limitu účastníkov. Kto chce, môže autora podporiť dobrovoľným príspevkom v appke.</p><p data-lang="en">Nothing. The app and the server are free, with no attendee limit. Anyone who wants can support the author with an optional tip in the app.</p></details>
+  <details><summary data-lang="sk">Kde sú dáta účastníkov?</summary><summary data-lang="en">Where is attendee data?</summary><p data-lang="sk">Na vašom serveri (Macu). Congressa nemá žiadny cloud autora; účastníkom sa vydáva len program. Mená a e-maily neopúšťajú váš počítač.</p><p data-lang="en">On your server (Mac). Congressa has no author-run cloud; attendees only receive the programme. Names and e-mails never leave your computer.</p></details>
+  <details><summary data-lang="sk">Musí to byť Mac?</summary><summary data-lang="en">Does it have to be a Mac?</summary><p data-lang="sk">Server beží všade, kde je Python 3 (Mac, Linux, Windows, lacný VPS). Administrácia programu je zatiaľ len v Mac aplikácii; na iPade funguje tiež (Nastavenia → režim organizátora). Bez Macu použite cestu A.</p><p data-lang="en">The server runs anywhere with Python 3 (Mac, Linux, Windows, a cheap VPS). Programme administration is currently in the Mac app only; it also works on iPad (Settings → organiser mode). Without a Mac, use path A.</p></details>
+  <details><summary data-lang="sk">Čo ak vypadne internet v sále?</summary><summary data-lang="en">What if the venue loses internet?</summary><p data-lang="sk">Nič sa nestane: program aj pripomienky sú v telefónoch. Push oznamy a nové zmeny prídu, keď sa sieť vráti.</p><p data-lang="en">Nothing happens: the programme and reminders are on the phones. Push announcements and new changes arrive once the network is back.</p></details>
+  <details><summary data-lang="sk">Android vs. iPhone — je rozdiel?</summary><summary data-lang="en">Android vs. iPhone — any difference?</summary><p data-lang="sk">Rovnaký program, QR kód, prihlášky aj pripomienky. Android zatiaľ nedostáva push zo servera — oznamy si stiahne pri otvorení appky (a každé 3 minúty, kým je na obrazovke).</p><p data-lang="en">Same programme, QR code, sign-ups and reminders. Android does not yet receive push from the server — it fetches announcements when the app is opened (and every 3 minutes while on screen).</p></details>
+  <details><summary data-lang="sk">Program je v dvoch jazykoch / má paralelné sekcie</summary><summary data-lang="en">The programme is bilingual / has parallel sessions</summary><p data-lang="sk">Paralelné sekcie sú bežné — každá má svoju sálu a účastník si vyberá hviezdičkou; kolízie appka ukáže. Jazyk programu je taký, aký publikujete; rozhranie appky je slovenské aj anglické.</p><p data-lang="en">Parallel sessions are normal — each has its room and the attendee picks with a star; clashes are shown. The programme language is whatever you publish; the app interface is Slovak and English.</p></details>
+  <details><summary data-lang="sk">Potrebujem pomoc</summary><summary data-lang="en">I need help</summary><p data-lang="sk">Napíšte na <a href="mailto:congressa_main@icloud.com">congressa_main@icloud.com</a> — rád pomôžem s prvou konferenciou, vrátane nastavenia servera na diaľku.</p><p data-lang="en">Write to <a href="mailto:congressa_main@icloud.com">congressa_main@icloud.com</a> — happy to help with your first conference, including setting up the server remotely.</p></details>
+</section>
+
+<footer>© 2026 Ján Šikuta · Congressa · <a href="index.html"><span data-lang="sk">Pre účastníkov</span><span data-lang="en">For attendees</span></a> · <a href="privacy.html"><span data-lang="sk">Ochrana súkromia</span><span data-lang="en">Privacy policy</span></a> · <a href="mailto:congressa_main@icloud.com">congressa_main@icloud.com</a></footer>
+<script>
+function setLang(l){document.documentElement.lang=l;try{localStorage.setItem('congressa_lang',l)}catch(e){}}
+function toggleLang(){setLang(document.documentElement.lang==='sk'?'en':'sk')}
+(function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}if(!l){l=(navigator.language||'sk').toLowerCase().startsWith('sk')||(navigator.language||'').toLowerCase().startsWith('cs')?'sk':'en'}setLang(l)})();
+</script>
+</body>
+</html>
