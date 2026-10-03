@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Congressa — stiahnuť aplikáciu</title>
+<meta name="description" content="Congressa zadarmo pre iPhone, iPad, Mac a Android. Tento odkaz vás pošle do správneho obchodu.">
+<meta name="apple-itunes-app" content="app-id=6809326421">
+<link rel="icon" href="assets/icon-256.png">
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--brand:#0B0E9D;--bg:#f6f7fb;--line:#e5e7ef}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  main{max-width:460px;margin:0 auto;padding:48px 20px;text-align:center}
+  img.icon{width:96px;height:96px;border-radius:22px;box-shadow:0 10px 30px rgba(11,14,157,.2)}
+  h1{font-size:26px;margin:18px 0 6px}
+  p{color:var(--muted);margin:0 0 22px}
+  .stores{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .stores img{height:48px;display:block}
+  .stores img.gp{height:72px;margin:-12px -10px}
+  .note{font-size:13px;margin-top:26px}
+  a{color:var(--brand)}
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="assets/icon-256.png" alt="Congressa">
+  <h1>Congressa</h1>
+  <p id="lead">Program konferencie vo vrecku. Zadarmo pre iPhone, iPad, Mac a Android.</p>
+  <div class="stores">
+    <a id="as" href="https://apps.apple.com/app/congressa/id6809326421"><img src="assets/appstore-badge.svg" alt="Download on the App Store"></a>
+    <a id="gp" href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa"><img class="gp" src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+  </div>
+  <p class="note"><a href="index.html" id="more">Viac o aplikácii</a></p>
+</main>
+<script>
+// Jeden odkaz / QR kód pre všetkých: Android → Google Play, iPhone/iPad/Mac → App Store, inak zostane voľba.
+(function () {
+  var ua = navigator.userAgent || '';
+  var AS = 'https://apps.apple.com/app/congressa/id6809326421';
+  var GP = 'https://play.google.com/store/apps/details?id=sk.sikuta.congressa';
+  if (!/^sk|^cs/i.test(navigator.language || '')) {
+    document.documentElement.lang = 'en';
+    document.getElementById('lead').textContent = 'Your conference programme in your pocket. Free for iPhone, iPad, Mac and Android.';
+    document.getElementById('more').textContent = 'More about the app';
+  }
+  if (/Android/i.test(ua)) { location.replace(GP); }
+  else if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) { location.replace(AS); }
+})();
+</script>
+</body>
+</html>
