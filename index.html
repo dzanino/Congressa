@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Congressa - program konferencie vo vrecku, aj offline</title>
-<meta name="description" content="Congressa: program konferencie vo vrecku pre iPhone, iPad, Mac a Android. Naskenujte QR kód alebo zadajte web či PDF programu - telefón vás upozorní na každú prednášku, obed či večeru, aj bez internetu. Zadarmo, v 8 jazykoch.">
+<meta name="description" content="Congressa: program konferencie vo vrecku pre iPhone, iPad, Mac a Android. Naskenujte QR kód alebo zadajte web či PDF programu - telefón vás upozorní na každú prednášku, obed či večeru, aj bez internetu. Zadarmo, v 13 jazykoch.">
 <meta name="apple-itunes-app" content="app-id=6809326421">
 <meta property="og:title" content="Congressa - program konferencie vo vrecku">
 <meta property="og:description" content="Zadarmo pre iPhone, iPad, Mac a Android. QR kód, web alebo PDF → program offline s pripomienkami. Organizátor: server, push, prihlášky.">
@@ -47,138 +47,139 @@
   footer{max-width:1080px;margin:0 auto;padding:30px 20px 50px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
   .badge{display:inline-block;background:#eef0fb;color:var(--brand);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600;margin-bottom:12px}
   @media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:36px}h1{font-size:34px}.nav a.hide{display:none}}
-  [data-lang]{display:none}html[lang=sk] [data-lang=sk]{display:revert}html[lang=en] [data-lang=en]{display:revert}
+  [data-lang]{display:none}html[lang=sk] [data-lang=sk]{display:revert}html[lang=en] [data-lang=en]{display:revert}html:not([lang=sk]):not([lang=en]) [data-lang=en]{display:revert}
+  select.lang{appearance:auto;max-width:150px}select.lang option{color:#0f172a;background:#fff}
 </style>
 <link rel="stylesheet" href="glam.css?v=20261017">
 </head>
 <body>
 <header><div class="nav">
   <img src="assets/icon-256.png" alt="Congressa"><b>Congressa</b><span class="sp"></span>
-  <a class="hide" href="#ucastnik"><span data-lang="sk">Účastník</span><span data-lang="en">Attendee</span></a>
-  <a class="hide" href="organizator.html"><span data-lang="sk">Organizátor</span><span data-lang="en">Organiser</span></a>
+  <a class="hide" href="#ucastnik"><span data-lang="sk">Účastník</span><span data-lang="en" data-k="1">Attendee</span></a>
+  <a class="hide" href="organizator.html"><span data-lang="sk">Organizátor</span><span data-lang="en" data-k="2">Organiser</span></a>
   <a class="hide" href="#ai">AI</a>
-  <a class="hide" href="#cena"><span data-lang="sk">Cena</span><span data-lang="en">Price</span></a>
-  <a class="hide" href="#autor"><span data-lang="sk">Autor</span><span data-lang="en">Author</span></a>
-  <a class="hide" href="privacy.html"><span data-lang="sk">Súkromie</span><span data-lang="en">Privacy</span></a>
-  <button class="lang" onclick="toggleLang()"><span data-lang="sk">EN</span><span data-lang="en">SK</span></button>
+  <a class="hide" href="#cena"><span data-lang="sk">Cena</span><span data-lang="en" data-k="3">Price</span></a>
+  <a class="hide" href="#autor"><span data-lang="sk">Autor</span><span data-lang="en" data-k="4">Author</span></a>
+  <a class="hide" href="privacy.html"><span data-lang="sk">Súkromie</span><span data-lang="en" data-k="5">Privacy</span></a>
+  <select class="lang" id="langsel" aria-label="Language / Jazyk" onchange="setLang(this.value)"><option value="sk">Slovenčina</option><option value="cs">Čeština</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option><option value="uk">Українська</option><option value="hu">Magyar</option><option value="pl">Polski</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select>
 </div></header>
 
 <div class="hero">
   <div>
-    <span class="badge"><span data-lang="sk">iPhone · iPad · Mac · Android</span><span data-lang="en">iPhone · iPad · Mac · Android</span></span>
+    <span class="badge"><span data-lang="sk">iPhone · iPad · Mac · Android</span><span data-lang="en" data-k="7">iPhone · iPad · Mac · Android</span></span>
     <h1 data-lang="sk">Program konferencie vo vrecku. Aj offline.</h1>
-    <h1 data-lang="en">Your conference programme in your pocket. Even offline.</h1>
+    <h1 data-lang="en" data-k="8">Your conference programme in your pocket. Even offline.</h1>
     <p class="lead" data-lang="sk">Naskenujte QR kód od organizátora či kolegu, alebo zadajte web konferencie či PDF programu. Congressa ho prečíta, vy skontrolujete a schválite - a telefón vás potom upozorní na každú prednášku, obed či večeru: čo, kedy a kde. Bez internetu, bez registrácie, bez organizátora.</p>
-    <p class="lead" data-lang="en">Scan the QR code from the organiser or a colleague, or enter the conference website or programme PDF. Congressa reads it, you check and approve - and your phone reminds you of every lecture, lunch or dinner: what, when and where. No internet, no sign-up, no organiser needed.</p>
+    <p class="lead" data-lang="en" data-k="9">Scan the QR code from the organiser or a colleague, or enter the conference website or programme PDF. Congressa reads it, you check and approve - and your phone reminds you of every lecture, lunch or dinner: what, when and where. No internet, no sign-up, no organiser needed.</p>
     <div class="cta">
       <a id="cta-as" href="https://apps.apple.com/app/congressa/id6809326421"><img src="assets/appstore-badge.svg" alt="Download on the App Store" style="height:48px;display:block"></a>
       <a id="cta-gp" href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa"><img src="assets/google-play-badge.png" alt="Get it on Google Play" style="height:72px;margin:-12px -10px;display:block"></a>
-      <a class="btn sec" href="#organizator" style="align-self:center"><span data-lang="sk">Pre organizátorov</span><span data-lang="en">For organisers</span></a>
+      <a class="btn sec" href="#organizator" style="align-self:center"><span data-lang="sk">Pre organizátorov</span><span data-lang="en" data-k="10">For organisers</span></a>
     </div>
-    <p style="margin:10px 0 0;color:var(--muted);font-size:14px"><span data-lang="sk">Zadarmo · iOS 17+, macOS 14+, Android 9+ · 13 jazykov</span><span data-lang="en">Free · iOS 17+, macOS 14+, Android 9+ · 13 languages</span></p>
+    <p style="margin:10px 0 0;color:var(--muted);font-size:14px"><span data-lang="sk">Zadarmo · iOS 17+, macOS 14+, Android 9+ · 13 jazykov</span><span data-lang="en" data-k="11">Free · iOS 17+, macOS 14+, Android 9+ · 13 languages</span></p>
   </div>
   <div class="phone">
-    <div class="t"><span data-lang="sk">Teraz · Štvrtok 3. 9.</span><span data-lang="en">Now · Thursday 3 Sep</span></div>
-    <h3><span data-lang="sk">Práve prebieha</span><span data-lang="en">Happening now</span></h3>
-    <div class="row live"><span class="time">15:00</span><div><b>Scientific session II.</b><br><small>Main Hall · 6 <span data-lang="sk">prednášok</span><span data-lang="en">talks</span></small></div><span class="k" style="background:#0B0E9D;color:#fff">LIVE</span></div>
-    <div class="t" style="margin-top:14px"><span data-lang="sk">Nasleduje</span><span data-lang="en">Up next</span></div>
-    <div class="row"><span class="time">16:10</span><div><span data-lang="sk">Prestávka na kávu</span><span data-lang="en">Coffee break</span></div><span class="k">☕</span></div>
-    <div class="row"><span class="time">16:30</span><div><span data-lang="sk">Postery - sekcia III.</span><span data-lang="en">Posters - session III.</span></div><span class="k">🎤 <span data-lang="sk">Prednášam</span><span data-lang="en">I present</span></span></div>
-    <div class="row"><span class="time">19:00</span><div><span data-lang="sk">Gala večera · Meštiansky pivovar</span><span data-lang="en">Gala dinner · Town brewery</span></div><span class="k">🍷</span></div>
-    <div class="t" style="margin-top:12px">🔔 <span data-lang="sk">Upozornenie o 15 min pred každým bodom - lokálne, funguje bez signálu.</span><span data-lang="en">Reminder 15 min before every item - local, works without signal.</span></div>
+    <div class="t"><span data-lang="sk">Teraz · Štvrtok 3. 9.</span><span data-lang="en" data-k="12">Now · Thursday 3 Sep</span></div>
+    <h3><span data-lang="sk">Práve prebieha</span><span data-lang="en" data-k="13">Happening now</span></h3>
+    <div class="row live"><span class="time">15:00</span><div><b>Scientific session II.</b><br><small>Main Hall · 6 <span data-lang="sk">prednášok</span><span data-lang="en" data-k="14">talks</span></small></div><span class="k" style="background:#0B0E9D;color:#fff">LIVE</span></div>
+    <div class="t" style="margin-top:14px"><span data-lang="sk">Nasleduje</span><span data-lang="en" data-k="15">Up next</span></div>
+    <div class="row"><span class="time">16:10</span><div><span data-lang="sk">Prestávka na kávu</span><span data-lang="en" data-k="16">Coffee break</span></div><span class="k">☕</span></div>
+    <div class="row"><span class="time">16:30</span><div><span data-lang="sk">Postery - sekcia III.</span><span data-lang="en" data-k="17">Posters - session III.</span></div><span class="k">🎤 <span data-lang="sk">Prednášam</span><span data-lang="en" data-k="18">I present</span></span></div>
+    <div class="row"><span class="time">19:00</span><div><span data-lang="sk">Gala večera · Meštiansky pivovar</span><span data-lang="en" data-k="19">Gala dinner · Town brewery</span></div><span class="k">🍷</span></div>
+    <div class="t" style="margin-top:12px">🔔 <span data-lang="sk">Upozornenie o 15 min pred každým bodom - lokálne, funguje bez signálu.</span><span data-lang="en" data-k="20">Reminder 15 min before every item - local, works without signal.</span></div>
   </div>
 </div>
 
 <section id="ucastnik">
-  <h2 data-lang="sk">Pre účastníka: tri kroky a hotovo</h2><h2 data-lang="en">For attendees: three steps</h2>
+  <h2 data-lang="sk">Pre účastníka: tri kroky a hotovo</h2><h2 data-lang="en" data-k="21">For attendees: three steps</h2>
   <p class="sub" data-lang="sk">Najrýchlejšie je naskenovať QR kód od organizátora alebo kolegu. Keď ho nemáte, stačí web alebo PDF programu - organizátor nemusí nič nasadzovať.</p>
-  <p class="sub" data-lang="en">The quickest way is to scan the QR code from the organiser or a colleague. Without one, a website or a programme PDF is enough - the organiser doesn't need to set anything up.</p>
+  <p class="sub" data-lang="en" data-k="22">The quickest way is to scan the QR code from the organiser or a colleague. Without one, a website or a programme PDF is enough - the organiser doesn't need to set anything up.</p>
   <div class="steps">
-    <div class="step"><h3 data-lang="sk">Zadajte web alebo PDF</h3><h3 data-lang="en">Enter a website or PDF</h3><p data-lang="sk">Congressa prehľadá stránky s programom, prečíta PDF aj kalendáre, a stránky vykreslené JavaScriptom otvorí ako prehliadač a preklikne dni.</p><p data-lang="en">Congressa crawls programme pages, reads PDFs and calendars, and renders JavaScript sites like a browser, clicking through the day tabs.</p></div>
-    <div class="step"><h3 data-lang="sk">Skontrolujte a upravte</h3><h3 data-lang="en">Check and adjust</h3><p data-lang="sk">Náhľad po dňoch: typ (prednáška, postery, obed, prestávka, spoločenský program), časy a názvy. Čo nesedí, opravíte klepnutím.</p><p data-lang="en">A preview by day: type (lecture, posters, lunch, break, social), times and titles. Fix anything with a tap.</p></div>
-    <div class="step"><h3 data-lang="sk">Schváľte - a fungujte offline</h3><h3 data-lang="en">Approve - and go offline</h3><p data-lang="sk">Program ostáva v telefóne. Lokálne upozornenia prídu pred každým bodom: čo, kedy, kde. Obrazovka „Teraz“ ukáže, čo práve prebieha.</p><p data-lang="en">The programme stays on your phone. Local reminders arrive before each item: what, when, where. The “Now” screen shows what's on right now.</p></div>
+    <div class="step"><h3 data-lang="sk">Zadajte web alebo PDF</h3><h3 data-lang="en" data-k="23">Enter a website or PDF</h3><p data-lang="sk">Congressa prehľadá stránky s programom, prečíta PDF aj kalendáre, a stránky vykreslené JavaScriptom otvorí ako prehliadač a preklikne dni.</p><p data-lang="en" data-k="24">Congressa crawls programme pages, reads PDFs and calendars, and renders JavaScript sites like a browser, clicking through the day tabs.</p></div>
+    <div class="step"><h3 data-lang="sk">Skontrolujte a upravte</h3><h3 data-lang="en" data-k="25">Check and adjust</h3><p data-lang="sk">Náhľad po dňoch: typ (prednáška, postery, obed, prestávka, spoločenský program), časy a názvy. Čo nesedí, opravíte klepnutím.</p><p data-lang="en" data-k="26">A preview by day: type (lecture, posters, lunch, break, social), times and titles. Fix anything with a tap.</p></div>
+    <div class="step"><h3 data-lang="sk">Schváľte - a fungujte offline</h3><h3 data-lang="en" data-k="27">Approve - and go offline</h3><p data-lang="sk">Program ostáva v telefóne. Lokálne upozornenia prídu pred každým bodom: čo, kedy, kde. Obrazovka „Teraz“ ukáže, čo práve prebieha.</p><p data-lang="en" data-k="28">The programme stays on your phone. Local reminders arrive before each item: what, when, where. The “Now” screen shows what's on right now.</p></div>
   </div>
   <div class="grid" style="margin-top:18px">
-    <div class="card"><div class="ic">⭐</div><h3 data-lang="sk">Môj plán a „Som v programe“</h3><h3 data-lang="en">My plan and “I'm in the programme”</h3><p data-lang="sk">Označte prednášky hviezdičkou. Ak prednášate, predsedáte alebo sprevádzate, priraďte sa k sebe - vaše vystúpenia sa zvýraznia a upozornia vás.</p><p data-lang="en">Star talks you care about. If you present, chair or guide, link yourself - your slots are highlighted and you get reminded.</p></div>
-    <div class="card"><div class="ic">🔍</div><h3 data-lang="sk">Hľadanie priezviska</h3><h3 data-lang="en">Search by surname</h3><p data-lang="sk">Nájde prednášku aj vo vnútri bloku (OP-12 v sekcii II), bez ohľadu na diakritiku.</p><p data-lang="en">Finds a talk even inside a block (OP-12 in session II), diacritics-insensitive.</p></div>
-    <div class="card"><div class="ic">📍</div><h3 data-lang="sk">Miesta a kontakty</h3><h3 data-lang="en">Places and contacts</h3><p data-lang="sk">Navigácia na miesto konania, večeru či zraz na výlet; pri výletoch kontaktná osoba s tlačidlom zavolať.</p><p data-lang="en">Navigate to the venue, dinner or trip meeting point; trips show a contact person with a call button.</p></div>
-    <div class="card"><div class="ic">📲</div><h3 data-lang="sk">Jeden QR kód pre iPhone aj Android</h3><h3 data-lang="en">One QR code for iPhone and Android</h3><p data-lang="sk">Kolega naskenuje váš kód Fotoaparátom. Kto má Congressu, hneď vidí program; kto nie, dostane sa do App Store alebo Google Play a po inštalácii sa ten istý program načíta sám.</p><p data-lang="en">A colleague scans your code with the Camera. With Congressa installed the programme opens at once; without it, the phone goes to the App Store or Google Play and the same programme loads by itself after installing.</p></div>
-    <div class="card"><div class="ic">🌍</div><h3 data-lang="sk">Trinásť jazykov</h3><h3 data-lang="en">Thirteen languages</h3><p data-lang="sk">Slovenčina, čeština, angličtina, nemčina, francúzština, španielčina, taliančina, ukrajinčina, maďarčina, poľština, čínština, japončina a kórejčina - jazyk sa dá zmeniť aj priamo v aplikácii.</p><p data-lang="en">Slovak, Czech, English, German, French, Spanish, Italian, Ukrainian, Hungarian, Polish, Chinese, Japanese and Korean - you can also switch the language inside the app.</p></div>
-    <div class="card"><div class="ic">🎨</div><h3 data-lang="sk">Vaša ikona</h3><h3 data-lang="en">Your icon</h3><p data-lang="sk">Šesť ikon na výber priamo v aplikácii - od monogramu po tmavý program.</p><p data-lang="en">Six icons to choose from inside the app - from the monogram to the dark programme.</p></div>
+    <div class="card"><div class="ic">⭐</div><h3 data-lang="sk">Môj plán a „Som v programe“</h3><h3 data-lang="en" data-k="29">My plan and “I'm in the programme”</h3><p data-lang="sk">Označte prednášky hviezdičkou. Ak prednášate, predsedáte alebo sprevádzate, priraďte sa k sebe - vaše vystúpenia sa zvýraznia a upozornia vás.</p><p data-lang="en" data-k="30">Star talks you care about. If you present, chair or guide, link yourself - your slots are highlighted and you get reminded.</p></div>
+    <div class="card"><div class="ic">🔍</div><h3 data-lang="sk">Hľadanie priezviska</h3><h3 data-lang="en" data-k="31">Search by surname</h3><p data-lang="sk">Nájde prednášku aj vo vnútri bloku (OP-12 v sekcii II), bez ohľadu na diakritiku.</p><p data-lang="en" data-k="32">Finds a talk even inside a block (OP-12 in session II), diacritics-insensitive.</p></div>
+    <div class="card"><div class="ic">📍</div><h3 data-lang="sk">Miesta a kontakty</h3><h3 data-lang="en" data-k="33">Places and contacts</h3><p data-lang="sk">Navigácia na miesto konania, večeru či zraz na výlet; pri výletoch kontaktná osoba s tlačidlom zavolať.</p><p data-lang="en" data-k="34">Navigate to the venue, dinner or trip meeting point; trips show a contact person with a call button.</p></div>
+    <div class="card"><div class="ic">📲</div><h3 data-lang="sk">Jeden QR kód pre iPhone aj Android</h3><h3 data-lang="en" data-k="35">One QR code for iPhone and Android</h3><p data-lang="sk">Kolega naskenuje váš kód Fotoaparátom. Kto má Congressu, hneď vidí program; kto nie, dostane sa do App Store alebo Google Play a po inštalácii sa ten istý program načíta sám.</p><p data-lang="en" data-k="36">A colleague scans your code with the Camera. With Congressa installed the programme opens at once; without it, the phone goes to the App Store or Google Play and the same programme loads by itself after installing.</p></div>
+    <div class="card"><div class="ic">🌍</div><h3 data-lang="sk">Trinásť jazykov</h3><h3 data-lang="en" data-k="37">Thirteen languages</h3><p data-lang="sk">Slovenčina, čeština, angličtina, nemčina, francúzština, španielčina, taliančina, ukrajinčina, maďarčina, poľština, čínština, japončina a kórejčina - jazyk sa dá zmeniť aj priamo v aplikácii.</p><p data-lang="en" data-k="38">Slovak, Czech, English, German, French, Spanish, Italian, Ukrainian, Hungarian, Polish, Chinese, Japanese and Korean - you can also switch the language inside the app.</p></div>
+    <div class="card"><div class="ic">🎨</div><h3 data-lang="sk">Vaša ikona</h3><h3 data-lang="en" data-k="39">Your icon</h3><p data-lang="sk">Šesť ikon na výber priamo v aplikácii - od monogramu po tmavý program.</p><p data-lang="en" data-k="40">Six icons to choose from inside the app - from the monogram to the dark programme.</p></div>
   </div>
 </section>
 
 <section id="ai"><div class="ai">
-  <h2 data-lang="sk">AI, ktorá číta program ako človek</h2><h2 data-lang="en">AI that reads a programme like a person</h2>
+  <h2 data-lang="sk">AI, ktorá číta program ako človek</h2><h2 data-lang="en" data-k="41">AI that reads a programme like a person</h2>
   <p data-lang="sk">Neprehľadné PDF, tabuľky s viacerými sálami, program rozdelený do záložiek? Congressa zozbiera text a nechá ho prečítať model Claude: rozdelí ho na dni, bloky s prednáškami a autormi, prestávky, večere a výlety, priradí predsedajúcich a kontakty. Vy len skontrolujete a schválite.</p>
-  <p data-lang="en">A messy PDF, tables with several halls, a programme split into tabs? Congressa collects the text and lets the Claude model read it: it splits it into days, blocks with talks and authors, breaks, dinners and trips, and assigns chairs and contacts. You just check and approve.</p>
+  <p data-lang="en" data-k="42">A messy PDF, tables with several halls, a programme split into tabs? Congressa collects the text and lets the Claude model read it: it splits it into days, blocks with talks and authors, breaks, dinners and trips, and assigns chairs and contacts. You just check and approve.</p>
   <div class="grid">
-    <div class="card"><div class="ic">🔑</div><h3 data-lang="sk">Vlastný kľúč</h3><h3 data-lang="en">Your own key</h3><p data-lang="sk">Zadáte svoj Claude API kľúč (ostáva v Keychaine telefónu). Jeden program stojí rádovo desiatky centov.</p><p data-lang="en">Use your own Claude API key (kept in the phone's Keychain). One programme costs cents.</p></div>
-    <div class="card"><div class="ic">☁️</div><h3 data-lang="sk">Congressa cloud</h3><h3 data-lang="en">Congressa cloud</h3><p data-lang="sk">Alebo AI cez server prevádzkovateľa či organizátora - bez kľúča v telefóne, s denným limitom.</p><p data-lang="en">Or AI through the operator's or organiser's server - no key on the phone, with a daily limit.</p></div>
-    <div class="card"><div class="ic">🛡️</div><h3 data-lang="sk">Bez AI to ide tiež</h3><h3 data-lang="en">Works without AI too</h3><p data-lang="sk">Rozpoznanie podľa časov, dní a kódov príspevkov funguje aj úplne bez AI a bez internetu.</p><p data-lang="en">Time, day and paper-code recognition works with no AI and no internet at all.</p></div>
+    <div class="card"><div class="ic">🔑</div><h3 data-lang="sk">Vlastný kľúč</h3><h3 data-lang="en" data-k="43">Your own key</h3><p data-lang="sk">Zadáte svoj Claude API kľúč (ostáva v Keychaine telefónu). Jeden program stojí rádovo desiatky centov.</p><p data-lang="en" data-k="44">Use your own Claude API key (kept in the phone's Keychain). One programme costs cents.</p></div>
+    <div class="card"><div class="ic">☁️</div><h3 data-lang="sk">Congressa cloud</h3><h3 data-lang="en" data-k="45">Congressa cloud</h3><p data-lang="sk">Alebo AI cez server prevádzkovateľa či organizátora - bez kľúča v telefóne, s denným limitom.</p><p data-lang="en" data-k="46">Or AI through the operator's or organiser's server - no key on the phone, with a daily limit.</p></div>
+    <div class="card"><div class="ic">🛡️</div><h3 data-lang="sk">Bez AI to ide tiež</h3><h3 data-lang="en" data-k="47">Works without AI too</h3><p data-lang="sk">Rozpoznanie podľa časov, dní a kódov príspevkov funguje aj úplne bez AI a bez internetu.</p><p data-lang="en" data-k="48">Time, day and paper-code recognition works with no AI and no internet at all.</p></div>
   </div>
 </div></section>
 
 <section id="organizator">
-  <h2 data-lang="sk">Pre organizátora: server, push a prihlášky</h2><h2 data-lang="en">For organisers: server, push and registrations</h2>
+  <h2 data-lang="sk">Pre organizátora: server, push a prihlášky</h2><h2 data-lang="en" data-k="49">For organisers: server, push and registrations</h2>
   <p class="sub" data-lang="sk">Mac aplikácia na správu programu + jednoduchý server (jeden súbor, bez závislostí) na vašom Macu alebo v cloude.</p>
-  <p class="sub" data-lang="en">A Mac app for managing the programme + a simple server (one file, no dependencies) on your Mac or in the cloud.</p>
+  <p class="sub" data-lang="en" data-k="50">A Mac app for managing the programme + a simple server (one file, no dependencies) on your Mac or in the cloud.</p>
   <div class="grid">
-    <div class="card"><div class="ic">📤</div><h3 data-lang="sk">Publikovanie jedným klikom</h3><h3 data-lang="en">One-click publishing</h3><p data-lang="sk">Účastníci zadajú len adresu servera; každá zmena programu k nim dorazí sama.</p><p data-lang="en">Attendees enter only the server address; every programme change reaches them automatically.</p></div>
-    <div class="card"><div class="ic">🔔</div><h3 data-lang="sk">Push notifikácie</h3><h3 data-lang="en">Push notifications</h3><p data-lang="sk">Server sám upozorní pred každým bodom, pošle naplánované aj okamžité oznamy („Obed je v átriu“).</p><p data-lang="en">The server reminds before each item and sends scheduled or instant announcements (“Lunch is in the atrium”).</p></div>
-    <div class="card"><div class="ic">🎟️</div><h3 data-lang="sk">Prihlášky a kapacita</h3><h3 data-lang="en">Registrations and capacity</h3><p data-lang="sk">Gala večera, výlet, workshop - kapacita, čakacia listina, prezenčné listiny v CSV.</p><p data-lang="en">Gala dinner, trip, workshop - capacity, waiting list, attendance lists as CSV.</p></div>
-    <div class="card"><div class="ic">👥</div><h3 data-lang="sk">Ľudia a roly</h3><h3 data-lang="en">People and roles</h3><p data-lang="sk">Prednáša, predsedá, sprevádza, kontaktná osoba - s telefónom a e-mailom pre účastníkov.</p><p data-lang="en">Presents, chairs, guides, contact person - with phone and e-mail for attendees.</p></div>
-    <div class="card"><div class="ic">🖥️</div><h3 data-lang="sk">Webový dashboard</h3><h3 data-lang="en">Web dashboard</h3><p data-lang="sk">Zariadenia, prihlášky, push log, záloha databázy - z ľubovoľného prehliadača.</p><p data-lang="en">Devices, registrations, push log, database backup - from any browser.</p></div>
-    <div class="card"><div class="ic">🔒</div><h3 data-lang="sk">Dáta u vás</h3><h3 data-lang="en">Your data stays yours</h3><p data-lang="sk">Mená a e-maily ostávajú na vašom serveri; účastníkom sa vydáva len program.</p><p data-lang="en">Names and e-mails stay on your server; attendees only receive the programme.</p></div>
+    <div class="card"><div class="ic">📤</div><h3 data-lang="sk">Publikovanie jedným klikom</h3><h3 data-lang="en" data-k="51">One-click publishing</h3><p data-lang="sk">Účastníci zadajú len adresu servera; každá zmena programu k nim dorazí sama.</p><p data-lang="en" data-k="52">Attendees enter only the server address; every programme change reaches them automatically.</p></div>
+    <div class="card"><div class="ic">🔔</div><h3 data-lang="sk">Push notifikácie</h3><h3 data-lang="en" data-k="53">Push notifications</h3><p data-lang="sk">Server sám upozorní pred každým bodom, pošle naplánované aj okamžité oznamy („Obed je v átriu“).</p><p data-lang="en" data-k="54">The server reminds before each item and sends scheduled or instant announcements (“Lunch is in the atrium”).</p></div>
+    <div class="card"><div class="ic">🎟️</div><h3 data-lang="sk">Prihlášky a kapacita</h3><h3 data-lang="en" data-k="55">Registrations and capacity</h3><p data-lang="sk">Gala večera, výlet, workshop - kapacita, čakacia listina, prezenčné listiny v CSV.</p><p data-lang="en" data-k="56">Gala dinner, trip, workshop - capacity, waiting list, attendance lists as CSV.</p></div>
+    <div class="card"><div class="ic">👥</div><h3 data-lang="sk">Ľudia a roly</h3><h3 data-lang="en" data-k="57">People and roles</h3><p data-lang="sk">Prednáša, predsedá, sprevádza, kontaktná osoba - s telefónom a e-mailom pre účastníkov.</p><p data-lang="en" data-k="58">Presents, chairs, guides, contact person - with phone and e-mail for attendees.</p></div>
+    <div class="card"><div class="ic">🖥️</div><h3 data-lang="sk">Webový dashboard</h3><h3 data-lang="en" data-k="59">Web dashboard</h3><p data-lang="sk">Zariadenia, prihlášky, push log, záloha databázy - z ľubovoľného prehliadača.</p><p data-lang="en" data-k="60">Devices, registrations, push log, database backup - from any browser.</p></div>
+    <div class="card"><div class="ic">🔒</div><h3 data-lang="sk">Dáta u vás</h3><h3 data-lang="en" data-k="61">Your data stays yours</h3><p data-lang="sk">Mená a e-maily ostávajú na vašom serveri; účastníkom sa vydáva len program.</p><p data-lang="en" data-k="62">Names and e-mails stay on your server; attendees only receive the programme.</p></div>
   </div>
-  <p style="margin-top:18px"><a class="btn" href="organizator.html"><span data-lang="sk">Návod pre organizátora krok za krokom →</span><span data-lang="en">Organiser guide step by step →</span></a></p>
+  <p style="margin-top:18px"><a class="btn" href="organizator.html"><span data-lang="sk">Návod pre organizátora krok za krokom →</span><span data-lang="en" data-k="63">Organiser guide step by step →</span></a></p>
 </section>
 
 <section id="cena">
-  <h2 data-lang="sk">Koľko to stojí: nič</h2><h2 data-lang="en">What it costs: nothing</h2>
+  <h2 data-lang="sk">Koľko to stojí: nič</h2><h2 data-lang="en" data-k="64">What it costs: nothing</h2>
   <p class="sub" data-lang="sk">Congressa je zadarmo a celá. Bez reklám, bez sledovania, bez zamknutých funkcií a bez predplatného. Nič nie je odložené pre platenú verziu.</p>
-  <p class="sub" data-lang="en">Congressa is free and complete. No ads, no tracking, no locked features, no subscription. Nothing is held back for a paid tier.</p>
+  <p class="sub" data-lang="en" data-k="65">Congressa is free and complete. No ads, no tracking, no locked features, no subscription. Nothing is held back for a paid tier.</p>
   <div class="grid">
-    <div class="card"><div class="ic">🎁</div><h3 data-lang="sk">Všetko zadarmo</h3><h3 data-lang="en">Everything free</h3><p data-lang="sk">Program, upozornenia, môj plán, offline režim, administrácia na Macu. Program môžete rozdať aj bez servera (QR kód, web, súbor).</p><p data-lang="en">Programme, reminders, my plan, offline mode and the Mac back office. You can also hand out the programme without any server (QR code, website, file).</p></div>
-    <div class="card"><div class="ic">☕</div><h3 data-lang="sk">Nepovinný príspevok</h3><h3 data-lang="en">Optional contribution</h3><p data-lang="sk">Ak vám appka na konferencii pomohla, môžete prispieť - káva 2,99 €, obed 7,99 €, večera 9,99 €. Nič sa tým neodomyká a prispieť sa dá aj opakovane.</p><p data-lang="en">If the app helped you at a conference you can chip in - coffee €2.99, lunch €7.99, dinner €9.99. It unlocks nothing and you can do it as often as you like.</p></div>
-    <div class="card"><div class="ic">🙈</div><h3 data-lang="sk">Bez otravovania</h3><h3 data-lang="en">No nagging</h3><p data-lang="sk">Výzva na príspevok sa zobrazí nanajvýš trikrát za celý život aplikácie - a kto prispel, nevidí ju nikdy.</p><p data-lang="en">The reminder about contributing appears at most three times in the whole life of the app - and never to someone who has already contributed.</p></div>
+    <div class="card"><div class="ic">🎁</div><h3 data-lang="sk">Všetko zadarmo</h3><h3 data-lang="en" data-k="66">Everything free</h3><p data-lang="sk">Program, upozornenia, môj plán, offline režim, administrácia na Macu. Program môžete rozdať aj bez servera (QR kód, web, súbor).</p><p data-lang="en" data-k="67">Programme, reminders, my plan, offline mode and the Mac back office. You can also hand out the programme without any server (QR code, website, file).</p></div>
+    <div class="card"><div class="ic">☕</div><h3 data-lang="sk">Nepovinný príspevok</h3><h3 data-lang="en" data-k="68">Optional contribution</h3><p data-lang="sk">Ak vám appka na konferencii pomohla, môžete prispieť - káva 2,99 €, obed 7,99 €, večera 9,99 €. Nič sa tým neodomyká a prispieť sa dá aj opakovane.</p><p data-lang="en" data-k="69">If the app helped you at a conference you can chip in - coffee €2.99, lunch €7.99, dinner €9.99. It unlocks nothing and you can do it as often as you like.</p></div>
+    <div class="card"><div class="ic">🙈</div><h3 data-lang="sk">Bez otravovania</h3><h3 data-lang="en" data-k="70">No nagging</h3><p data-lang="sk">Výzva na príspevok sa zobrazí nanajvýš trikrát za celý život aplikácie - a kto prispel, nevidí ju nikdy.</p><p data-lang="en" data-k="71">The reminder about contributing appears at most three times in the whole life of the app - and never to someone who has already contributed.</p></div>
   </div>
 </section>
 
 <section class="icons">
-  <h2 data-lang="sk">Vyberte si ikonu</h2><h2 data-lang="en">Pick your icon</h2>
+  <h2 data-lang="sk">Vyberte si ikonu</h2><h2 data-lang="en" data-k="72">Pick your icon</h2>
   <img src="assets/icons.png" alt="Congressa icons">
 </section>
 
 <section id="autor">
-  <h2 data-lang="sk">Prečo Congressa vznikla</h2><h2 data-lang="en">Why Congressa exists</h2>
+  <h2 data-lang="sk">Prečo Congressa vznikla</h2><h2 data-lang="en" data-k="73">Why Congressa exists</h2>
   <div class="card" style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
     <img src="assets/icon-256.png" alt="" style="width:88px;height:88px;border-radius:20px">
     <div>
       <p data-lang="sk" style="margin-top:0">„Na konferenciách som nosil v saku poskladaný papierový program. Hľadal som v ňom, kedy je moja prednáška a v ktorej sále, a listoval medzi dňami, kým sa okolo mňa menili sekcie. Chcel som mať program vo vrecku: nech mi telefón sám povie, čo práve prebieha, čo nasleduje a kam mám ísť - a nech to funguje aj tam, kde v kongresovej sále nie je signál.“</p>
-      <p data-lang="en" style="margin-top:0">“At conferences I carried a folded paper programme in my jacket. I looked up when my talk was and in which hall, leafing between days while the sessions changed around me. I wanted the programme in my pocket: let the phone tell me what is on now, what comes next and where to go - and let it work where a congress hall has no signal.”</p>
-      <p style="color:var(--muted);margin-bottom:0"><b>Ján Šikuta</b> - <span data-lang="sk">autor aplikácie, Bratislava</span><span data-lang="en">author of the app, Bratislava</span> · <a href="mailto:congressa@forensika.eu">congressa@forensika.eu</a></p>
+      <p data-lang="en" data-k="74" style="margin-top:0">“At conferences I carried a folded paper programme in my jacket. I looked up when my talk was and in which hall, leafing between days while the sessions changed around me. I wanted the programme in my pocket: let the phone tell me what is on now, what comes next and where to go - and let it work where a congress hall has no signal.”</p>
+      <p style="color:var(--muted);margin-bottom:0"><b>Ján Šikuta</b> - <span data-lang="sk">autor aplikácie, Bratislava</span><span data-lang="en" data-k="75">author of the app, Bratislava</span> · <a href="mailto:congressa@forensika.eu">congressa@forensika.eu</a></p>
     </div>
   </div>
 </section>
 
 <section id="stiahnut">
-  <h2 data-lang="sk">Stiahnuť</h2><h2 data-lang="en">Download</h2>
+  <h2 data-lang="sk">Stiahnuť</h2><h2 data-lang="en" data-k="76">Download</h2>
   <p class="sub" data-lang="sk">Zadarmo, bez reklám a bez registrácie. Aktuálne verzie: iPhone a iPad 2.11 · Mac 2.10 · Android 1.8 (október 2026).</p>
-  <p class="sub" data-lang="en">Free, ad-free and account-free. Current versions: iPhone and iPad 2.11 · Mac 2.10 · Android 1.8 (October 2026).</p>
+  <p class="sub" data-lang="en" data-k="77">Free, ad-free and account-free. Current versions: iPhone and iPad 2.11 · Mac 2.10 · Android 1.8 (October 2026).</p>
   <table>
-    <tr><th data-lang="sk">Platforma</th><th data-lang="en">Platform</th><th data-lang="sk">Stav</th><th data-lang="en">Status</th></tr>
-    <tr><td>iPhone / iPad (iOS 17+)</td><td><span data-lang="sk"><a href="https://apps.apple.com/app/congressa/id6809326421">App Store</a>, verzia 2.11 - zadarmo</span><span data-lang="en"><a href="https://apps.apple.com/app/congressa/id6809326421">App Store</a>, version 2.11 - free</span></td></tr>
-    <tr><td>Mac (macOS 14+) - <span data-lang="sk">organizátor</span><span data-lang="en">organiser</span></td><td><span data-lang="sk"><a href="https://apps.apple.com/app/congressa/id6809326421?platform=mac">Mac App Store</a>, verzia 2.10 - zadarmo</span><span data-lang="en"><a href="https://apps.apple.com/app/congressa/id6809326421?platform=mac">Mac App Store</a>, version 2.10 - free</span></td></tr>
-    <tr><td>Android (9+)</td><td><span data-lang="sk"><a href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa">Google Play</a>, verzia 1.8 - zadarmo</span><span data-lang="en"><a href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa">Google Play</a>, version 1.8 - free</span></td></tr>
-    <tr><td><span data-lang="sk">Server pre organizátora</span><span data-lang="en">Organiser server</span></td><td><span data-lang="sk">push oznamy, prihlášky s kapacitou a hlasovanie - konferenciu vám založíme na serveri Congressa a pošleme pozvánku s odkazom (<a href="organizator.html#so">ako to funguje</a>)</span><span data-lang="en">push announcements, sign-ups with capacity and voting - we set up your conference on the Congressa server and send you an invitation link (<a href="organizator.html#so">how it works</a>)</span></td></tr>
+    <tr><th data-lang="sk">Platforma</th><th data-lang="en" data-k="78">Platform</th><th data-lang="sk">Stav</th><th data-lang="en" data-k="79">Status</th></tr>
+    <tr><td>iPhone / iPad (iOS 17+)</td><td><span data-lang="sk"><a href="https://apps.apple.com/app/congressa/id6809326421">App Store</a>, verzia 2.11 - zadarmo</span><span data-lang="en" data-k="80"><a href="https://apps.apple.com/app/congressa/id6809326421">App Store</a>, version 2.11 - free</span></td></tr>
+    <tr><td>Mac (macOS 14+) - <span data-lang="sk">organizátor</span><span data-lang="en" data-k="81">organiser</span></td><td><span data-lang="sk"><a href="https://apps.apple.com/app/congressa/id6809326421?platform=mac">Mac App Store</a>, verzia 2.10 - zadarmo</span><span data-lang="en" data-k="82"><a href="https://apps.apple.com/app/congressa/id6809326421?platform=mac">Mac App Store</a>, version 2.10 - free</span></td></tr>
+    <tr><td>Android (9+)</td><td><span data-lang="sk"><a href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa">Google Play</a>, verzia 1.8 - zadarmo</span><span data-lang="en" data-k="83"><a href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa">Google Play</a>, version 1.8 - free</span></td></tr>
+    <tr><td><span data-lang="sk">Server pre organizátora</span><span data-lang="en" data-k="84">Organiser server</span></td><td><span data-lang="sk">push oznamy, prihlášky s kapacitou a hlasovanie - konferenciu vám založíme na serveri Congressa a pošleme pozvánku s odkazom (<a href="organizator.html#so">ako to funguje</a>)</span><span data-lang="en" data-k="85">push announcements, sign-ups with capacity and voting - we set up your conference on the Congressa server and send you an invitation link (<a href="organizator.html#so">how it works</a>)</span></td></tr>
   </table>
   <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
     <div class="card" style="display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center">
       <img src="assets/qr-appstore.png" alt="QR App Store" style="width:112px;height:112px;image-rendering:pixelated;background:#fff;padding:6px;border-radius:12px">
       <div>
         <p style="margin:0;font-weight:600">iPhone · iPad · Mac</p>
-        <p style="margin:2px 0 8px 0;color:var(--muted)"><span data-lang="sk">App Store, zadarmo</span><span data-lang="en">App Store, free</span></p>
+        <p style="margin:2px 0 8px 0;color:var(--muted)"><span data-lang="sk">App Store, zadarmo</span><span data-lang="en" data-k="86">App Store, free</span></p>
         <a href="https://apps.apple.com/app/congressa/id6809326421"><img src="assets/appstore-badge.svg" alt="Download on the App Store" style="height:40px;display:block"></a>
       </div>
     </div>
@@ -186,7 +187,7 @@
       <img src="assets/qr-googleplay.png" alt="QR Google Play" style="width:112px;height:112px;image-rendering:pixelated;background:#fff;padding:6px;border-radius:12px">
       <div>
         <p style="margin:0;font-weight:600">Android</p>
-        <p style="margin:2px 0 8px 0;color:var(--muted)"><span data-lang="sk">Google Play, zadarmo</span><span data-lang="en">Google Play, free</span></p>
+        <p style="margin:2px 0 8px 0;color:var(--muted)"><span data-lang="sk">Google Play, zadarmo</span><span data-lang="en" data-k="87">Google Play, free</span></p>
         <a href="https://play.google.com/store/apps/details?id=sk.sikuta.congressa"><img src="assets/google-play-badge.png" alt="Get it on Google Play" style="height:60px;margin:-10px -9px;display:block"></a>
       </div>
     </div>
@@ -194,12 +195,12 @@
   <div class="card" style="margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center">
     <img src="assets/qr-app.png" alt="QR Congressa - iPhone aj Android" style="width:112px;height:112px;image-rendering:pixelated;background:#fff;padding:6px;border-radius:12px">
     <div>
-      <p style="margin:0;font-weight:600"><span data-lang="sk">Jeden kód pre všetky telefóny</span><span data-lang="en">One code for every phone</span></p>
-      <p style="margin:2px 0 0;color:var(--muted)"><span data-lang="sk">Odkaz <a href="app.html">dzanino.github.io/Congressa/app.html</a> pošle iPhone do App Store a Android do Google Play. Hodí sa na plagát či prvý slide. (Na program konkrétnej konferencie použite QR kód z aplikácie - ten po inštalácii načíta aj program.)</span><span data-lang="en">The link <a href="app.html">dzanino.github.io/Congressa/app.html</a> sends an iPhone to the App Store and an Android phone to Google Play. Handy for a poster or the opening slide. (For a specific conference programme use the QR code from the app - it also loads the programme after installing.)</span></p>
+      <p style="margin:0;font-weight:600"><span data-lang="sk">Jeden kód pre všetky telefóny</span><span data-lang="en" data-k="88">One code for every phone</span></p>
+      <p style="margin:2px 0 0;color:var(--muted)"><span data-lang="sk">Odkaz <a href="app.html">dzanino.github.io/Congressa/app.html</a> pošle iPhone do App Store a Android do Google Play. Hodí sa na plagát či prvý slide. (Na program konkrétnej konferencie použite QR kód z aplikácie - ten po inštalácii načíta aj program.)</span><span data-lang="en" data-k="89">The link <a href="app.html">dzanino.github.io/Congressa/app.html</a> sends an iPhone to the App Store and an Android phone to Google Play. Handy for a poster or the opening slide. (For a specific conference programme use the QR code from the app - it also loads the programme after installing.)</span></p>
     </div>
   </div>
 
-  <h3 style="margin:26px 0 8px" data-lang="sk">Novinky vo verziách 2.8 – 2.11 (iPhone, iPad, Mac) a 1.6 – 1.8 (Android)</h3><h3 style="margin:26px 0 8px" data-lang="en">What's new in 2.8 – 2.11 (iPhone, iPad, Mac) and 1.6 – 1.8 (Android)</h3>
+  <h3 style="margin:26px 0 8px" data-lang="sk">Novinky vo verziách 2.8 – 2.11 (iPhone, iPad, Mac) a 1.6 – 1.8 (Android)</h3><h3 style="margin:26px 0 8px" data-lang="en" data-k="90">What's new in 2.8 – 2.11 (iPhone, iPad, Mac) and 1.6 – 1.8 (Android)</h3>
   <ul data-lang="sk" style="margin:0;padding-left:20px;color:var(--ink)">
     <li><b>Zámok administrácie (2.11):</b> ak je v zariadení uložené heslo organizátora, administrácia sa otvorí až po Face ID, Touch ID alebo kóde zariadenia a po opustení aplikácie sa znova zamkne. Prihlásenie ponúkne uloženie adresy a hesla do aplikácie Heslá.</li>
     <li><b>Pre organizátorov:</b> konferenciu na serveri Congressa spravujete po prihlásení adresou a heslom z pozvánky (iPhone, iPad, Mac aj web). Vidíte len svoju konferenciu a appka nezverejní zmeny, ak program medzitým upravil niekto iný.</li>
@@ -210,7 +211,7 @@
     <li><b>Načítanie zo súboru:</b> hotový program Congressa (<code>.congressa.json</code>) sa dá otvoriť aj tlačidlom „Otvoriť PDF alebo textový súbor“, aj z iCloud Drive.</li>
     <li><b>Program bez názvu</b> dostane pri zdieľaní názov a nikde sa neukáže prázdny nadpis.</li>
   </ul>
-  <ul data-lang="en" style="margin:0;padding-left:20px;color:var(--ink)">
+  <ul data-lang="en" data-k="91" style="margin:0;padding-left:20px;color:var(--ink)">
     <li><b>Admin lock (2.11):</b> when the organiser password is stored on the device, conference administration opens only after Face ID, Touch ID or the device passcode and locks again whenever you leave the app. Signing in offers to save the address and password to the Passwords app.</li>
     <li><b>For organisers:</b> you manage your conference on a Congressa server after signing in with the address and password from your invitation (iPhone, iPad, Mac and web). You see only your own conference, and the app does not publish your changes if someone else changed the programme in the meantime.</li>
     <li><b>Text size:</b> in Settings (Appearance and language) you can make text in the app larger than the system size. The programme stays easy to read even with the largest text.</li>
@@ -221,17 +222,39 @@
     <li><b>A programme without a name</b> gets one when you share it, so no empty heading appears anywhere.</li>
   </ul>
 
-  <p style="margin-top:16px;color:var(--muted)"><span data-lang="sk">Kódy pokojne premietnite na plátno alebo dajte na plagát konferencie - aplikácia je zadarmo a nezávislá od organizátorov.</span><span data-lang="en">Feel free to project the codes or put them on a conference poster - the app is free and independent of the organisers.</span></p>
+  <p style="margin-top:16px;color:var(--muted)"><span data-lang="sk">Kódy pokojne premietnite na plátno alebo dajte na plagát konferencie - aplikácia je zadarmo a nezávislá od organizátorov.</span><span data-lang="en" data-k="92">Feel free to project the codes or put them on a conference poster - the app is free and independent of the organisers.</span></p>
 
-  <p style="margin-top:14px"><span data-lang="sk">Kontakt:</span><span data-lang="en">Contact:</span> <a href="mailto:congressa@forensika.eu">congressa@forensika.eu</a> · <a href="support.html"><span data-lang="sk">Podpora</span><span data-lang="en">Support</span></a> · <a href="privacy.html"><span data-lang="sk">Ochrana súkromia</span><span data-lang="en">Privacy policy</span></a></p>
+  <p style="margin-top:14px"><span data-lang="sk">Kontakt:</span><span data-lang="en" data-k="93">Contact:</span> <a href="mailto:congressa@forensika.eu">congressa@forensika.eu</a> · <a href="support.html"><span data-lang="sk">Podpora</span><span data-lang="en" data-k="94">Support</span></a> · <a href="privacy.html"><span data-lang="sk">Ochrana súkromia</span><span data-lang="en" data-k="95">Privacy policy</span></a></p>
 </section>
 
-<footer><span data-fz>©</span> 2026 Ján Šikuta · Congressa · <span data-lang="sk">Vytvorené pre odborné konferencie.</span><span data-lang="en">Built for scientific conferences.</span></footer>
+<footer><span data-fz>©</span> 2026 Ján Šikuta · Congressa · <span data-lang="sk">Vytvorené pre odborné konferencie.</span><span data-lang="en" data-k="96">Built for scientific conferences.</span></footer>
 <script>
 (function(){var ua=navigator.userAgent||'';if(/Android/i.test(ua)){var a=document.getElementById('cta-as'),g=document.getElementById('cta-gp');if(a&&g)a.parentNode.insertBefore(g,a)}})();
-function setLang(l){document.documentElement.lang=l;try{localStorage.setItem('congressa_lang',l)}catch(e){}}
+var LANGS=['sk','cs','en','de','fr','es','it','uk','hu','pl','zh','ja','ko'];
+var T0={sk:{t:document.title,d:(document.querySelector('meta[name=description]')||{}).content},en:{t:'Congressa - your conference programme in your pocket, works offline',d:'Congressa: your conference programme in your pocket for iPhone, iPad, Mac and Android. Scan the QR code or enter the website or PDF of the programme - your phone reminds you of every talk, lunch and dinner, even without internet. Free, no ads.'}};
+function cgApply(l,tr){
+  var h=document.documentElement;h.lang=l;
+  var els=document.querySelectorAll('[data-k]');
+  for(var i=0;i<els.length;i++){var e=els[i];if(e.getAttribute('data-o')===null)e.setAttribute('data-o',e.innerHTML);var k=e.getAttribute('data-k');e.innerHTML=(tr&&tr[k]!==undefined)?tr[k]:e.getAttribute('data-o')}
+  var m=document.querySelector('meta[name=description]');
+  var tt=(tr&&tr.title)||(T0[l]&&T0[l].t)||T0.en.t,dd=(tr&&tr.desc)||(T0[l]&&T0[l].d)||T0.en.d;
+  document.title=tt;if(m)m.setAttribute('content',dd);
+  var sel=document.getElementById('langsel');if(sel)sel.value=l;
+}
+function setLang(l){
+  if(LANGS.indexOf(l)<0)l='en';
+  try{localStorage.setItem('congressa_lang',l)}catch(e){}
+  if(l==='sk'||l==='en'||(window.CG_I18N&&window.CG_I18N[l])){cgApply(l,(window.CG_I18N||{})[l]);return}
+  var s=document.createElement('script');s.src='i18n/'+l+'.js?v=20261020';
+  s.onload=function(){if(localStorage.getItem('congressa_lang')===l)cgApply(l,window.CG_I18N[l])};
+  s.onerror=function(){cgApply('en',null)};
+  document.head.appendChild(s);
+}
 function toggleLang(){setLang(document.documentElement.lang==='sk'?'en':'sk')}
-(function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}if(!l){l=(navigator.language||'sk').toLowerCase().startsWith('sk')||(navigator.language||'').toLowerCase().startsWith('cs')?'sk':'en'}setLang(l)})();
+(function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}
+  if(LANGS.indexOf(l)<0){l='en';var nl=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en']);
+    for(var i=0;i<nl.length;i++){var c=(nl[i]||'').slice(0,2).toLowerCase();if(LANGS.indexOf(c)>=0){l=c;break}}}
+  setLang(l)})();
 </script>
 <script src="site.js" defer></script>
 </body>

@@ -40,11 +40,27 @@
   var ua = navigator.userAgent || '';
   var AS = 'https://apps.apple.com/app/congressa/id6809326421';
   var GP = 'https://play.google.com/store/apps/details?id=sk.sikuta.congressa';
-  if (!/^sk|^cs/i.test(navigator.language || '')) {
-    document.documentElement.lang = 'en';
-    document.getElementById('lead').textContent = 'Your conference programme in your pocket. Free for iPhone, iPad, Mac and Android.';
-    document.getElementById('more').textContent = 'More about the app';
-  }
+  var TX = {
+    sk: ['Program konferencie vo vrecku. Zadarmo pre iPhone, iPad, Mac a Android.', 'Viac o aplikácii'],
+    cs: ['Program konference v kapse. Zdarma pro iPhone, iPad, Mac a Android.', 'Více o aplikaci'],
+    en: ['Your conference programme in your pocket. Free for iPhone, iPad, Mac and Android.', 'More about the app'],
+    de: ['Ihr Konferenzprogramm in der Tasche. Kostenlos für iPhone, iPad, Mac und Android.', 'Mehr über die App'],
+    fr: ['Le programme de votre congrès dans la poche. Gratuit sur iPhone, iPad, Mac et Android.', 'En savoir plus sur l’app'],
+    es: ['El programa de su congreso en el bolsillo. Gratis para iPhone, iPad, Mac y Android.', 'Más información sobre la app'],
+    it: ['Il programma del congresso in tasca. Gratis per iPhone, iPad, Mac e Android.', 'Scopri di più sull’app'],
+    uk: ['Програма конференції в кишені. Безкоштовно для iPhone, iPad, Mac і Android.', 'Докладніше про застосунок'],
+    hu: ['A konferenciaprogram a zsebében. Ingyenes iPhone-ra, iPadre, Macre és Androidra.', 'Többet az alkalmazásról'],
+    pl: ['Program konferencji w kieszeni. Bezpłatnie na iPhone, iPad, Mac i Androida.', 'Więcej o aplikacji'],
+    zh: ['会议日程，随身携带。iPhone、iPad、Mac 和 Android 免费使用。', '了解更多'],
+    ja: ['カンファレンスのプログラムをポケットに。iPhone、iPad、Mac、Android で無料。', 'アプリについて詳しく'],
+    ko: ['학술대회 프로그램을 주머니 속에. iPhone, iPad, Mac, Android에서 무료.', '앱 자세히 보기']
+  };
+  var nl = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+  var lg = 'en';
+  for (var i = 0; i < nl.length; i++) { var c = (nl[i] || '').slice(0, 2).toLowerCase(); if (TX[c]) { lg = c; break; } }
+  document.documentElement.lang = lg;
+  document.getElementById('lead').textContent = TX[lg][0];
+  document.getElementById('more').textContent = TX[lg][1];
   if (/Android/i.test(ua)) { location.replace(GP); }
   else if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) { location.replace(AS); }
 })();

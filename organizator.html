@@ -208,7 +208,7 @@
 <script>
 function setLang(l){document.documentElement.lang=l;try{localStorage.setItem('congressa_lang',l)}catch(e){}}
 function toggleLang(){setLang(document.documentElement.lang==='sk'?'en':'sk')}
-(function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}if(!l){l=(navigator.language||'sk').toLowerCase().startsWith('sk')||(navigator.language||'').toLowerCase().startsWith('cs')?'sk':'en'}setLang(l)})();
+(function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}if(!l){l=(navigator.language||'sk').toLowerCase().startsWith('sk')||(navigator.language||'').toLowerCase().startsWith('cs')?'sk':'en'}document.documentElement.lang=(l==='sk'||l==='cs')?'sk':'en'})();
 </script>
 <script src="site.js" defer></script>
 </body>
