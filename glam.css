@@ -30,6 +30,7 @@ body::before{
 /* Žiara .hero::before siaha mimo šírky stránky: nesmie ju rozšíriť, inak telefón celú stránku zmenší a vpravo ostane prázdny pás. */
 html,body{overflow-x:hidden;overflow-x:clip;}
 header,main,section,footer,.hero{position:relative;z-index:1;}
+header{position:sticky;top:0;z-index:20;}
 ::selection{background:rgba(255,154,60,.35);color:#fff;}
 a{color:var(--brand);}
 a:hover{color:var(--accent-2);}
