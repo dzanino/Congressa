@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sk">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-hm8ApnbfBUoqyHMP0An/HOlRIz8AHLKqJweVpCW1M1I='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://abacus.jasoncameron.dev; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://dzanino.github.io/Congressa/">
 <title>Congressa - program konferencie vo vrecku, aj offline</title>
@@ -9,7 +9,7 @@
 <meta name="apple-itunes-app" content="app-id=6809326421">
 <meta property="og:title" content="Congressa - program konferencie vo vrecku">
 <meta property="og:description" content="Zadarmo pre iPhone, iPad, Mac a Android. QR kód, web alebo PDF → program offline s pripomienkami. Organizátor: server, push, prihlášky.">
-<meta property="og:image" content="assets/icon-512.png">
+<meta property="og:image" content="https://dzanino.github.io/Congressa/assets/icon-512.png">
 <link rel="icon" href="assets/icon-256.png">
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--brand:#0B0E9D;--brand2:#3f5ea7;--bg:#f6f7fb;--card:#fff;--line:#e5e7ef;--accent:#e0801f}
@@ -62,7 +62,7 @@
   <a class="hide" href="#cena"><span data-lang="sk">Cena</span><span data-lang="en" data-k="3">Price</span></a>
   <a class="hide" href="#autor"><span data-lang="sk">Autor</span><span data-lang="en" data-k="4">Author</span></a>
   <a class="hide" href="privacy.html"><span data-lang="sk">Súkromie</span><span data-lang="en" data-k="5">Privacy</span></a>
-  <select class="lang" id="langsel" aria-label="Language / Jazyk" onchange="setLang(this.value)"><option value="sk">Slovenčina</option><option value="cs">Čeština</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option><option value="uk">Українська</option><option value="hu">Magyar</option><option value="pl">Polski</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select>
+  <select class="lang" id="langsel" aria-label="Language / Jazyk"><option value="sk">Slovenčina</option><option value="cs">Čeština</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option><option value="uk">Українська</option><option value="hu">Magyar</option><option value="pl">Polski</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select>
 </div></header>
 
 <div class="hero">
@@ -258,6 +258,7 @@ function setLang(l){
   document.head.appendChild(s);
 }
 function toggleLang(){setLang(document.documentElement.lang==='sk'?'en':'sk')}
+(function(){var s=document.getElementById('langsel');if(s)s.addEventListener('change',function(){setLang(this.value)});})();
 (function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}
   if(LANGS.indexOf(l)<0){l='en';var nl=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en']);
     for(var i=0;i<nl.length;i++){var c=(nl[i]||'').slice(0,2).toLowerCase();if(LANGS.indexOf(c)>=0){l=c;break}}}

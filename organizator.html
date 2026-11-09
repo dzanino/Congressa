@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="sk">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lHi/YM5A5uduls46IRYYqjXE/KrQENzPQVI6N6hw1OY='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://abacus.jasoncameron.dev; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://dzanino.github.io/Congressa/organizator.html">
 <title>Congressa pre organizátora - návod krok za krokom</title>
 <meta name="description" content="Ako dať účastníkom konferencie program do telefónu s Congressou: bez servera za 10 minút (QR kód), alebo so serverom - push oznamy, prihlášky, kapacita. Návod pre organizátora, zadarmo.">
 <meta property="og:title" content="Congressa pre organizátora - návod">
 <meta property="og:description" content="Program konferencie do telefónov účastníkov: QR kód za 10 minút, alebo hostovaná konferencia s push oznamami, prihláškami a hlasovaním.">
-<meta property="og:image" content="assets/icon-512.png">
+<meta property="og:image" content="https://dzanino.github.io/Congressa/assets/icon-512.png">
 <link rel="icon" href="assets/icon-256.png">
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--brand:#0B0E9D;--brand2:#3f5ea7;--bg:#f6f7fb;--card:#fff;--line:#e5e7ef;--accent:#e0801f}
@@ -74,7 +74,7 @@
   <a class="hide" href="#pocas"><span data-lang="sk">Počas konferencie</span><span data-lang="en">During the event</span></a>
   <a class="hide" href="#faq">FAQ</a>
   <a class="hide" href="index.html"><span data-lang="sk">Pre účastníkov</span><span data-lang="en">For attendees</span></a>
-  <button class="lang" onclick="toggleLang()"><span data-lang="sk">EN</span><span data-lang="en">SK</span></button>
+  <button class="lang" id="langbtn"><span data-lang="sk">EN</span><span data-lang="en">SK</span></button>
 </div></header>
 
 <div class="hero">
@@ -213,6 +213,7 @@
 <script>
 function setLang(l){document.documentElement.lang=l;try{localStorage.setItem('congressa_lang',l)}catch(e){}}
 function toggleLang(){setLang(document.documentElement.lang==='sk'?'en':'sk')}
+document.getElementById('langbtn').addEventListener('click',toggleLang);
 (function(){var l=null;try{l=localStorage.getItem('congressa_lang')}catch(e){}if(!l){l=(navigator.language||'sk').toLowerCase().startsWith('sk')||(navigator.language||'').toLowerCase().startsWith('cs')?'sk':'en'}document.documentElement.lang=(l==='sk'||l==='cs')?'sk':'en'})();
 </script>
 <script src="site.js" defer></script>
